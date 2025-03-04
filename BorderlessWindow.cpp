@@ -221,14 +221,15 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         break;
     }
     case WM_PAINT:
-        {
-            PAINTSTRUCT ps;
-            HDC hdc = BeginPaint(hWnd, &ps);
-            // TODO: Zeichencode, der hdc verwendet, hier einfügen...
-            EndPaint(hWnd, &ps);
-        }
+    {
+        PAINTSTRUCT ps;
+        HDC hdc = BeginPaint(hWnd, &ps);
+        // TODO: Zeichencode, der hdc verwendet, hier einfügen...
+        EndPaint(hWnd, &ps);
+    }
         break;
     case WM_DESTROY:
+        ResetWindow(g_CurrentActiveBorderless);
         PostQuitMessage(0);
         break;
     default:
